@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Platformer Game</title>
+  <style>
+    #game-window {
+      width: 400px;
+      height: 300px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-window"></div>
+  <script>
+    const gameWindow = document.getElementById('game-window');
+const player = document.createElement('div');
+player.className = 'player';
+gameWindow.appendChild(player);
+
+let xPosition = 0;
+let yPosition = 0;
+
+function movePlayer(event) {
+  if (event.key === 'ArrowRight') {
+    xPosition += 10;
+  } else if (event.key === 'ArrowLeft') {
+    xPosition -= 10;
+  } else if (event.key === 'ArrowUp') {
+    yPosition -= 10;
+  } else if (event.key === 'ArrowDown') {
+    yPosition += 10;
+  }
+
+  player.style.left = xPosition + 'px';
+  player.style.top = yPosition + 'px';
+}
+
+document.addEventListener('keydown', movePlayer);
+  </script>
+</body>
+</html>
